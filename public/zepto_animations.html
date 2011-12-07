@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <link type="text/css" rel="stylesheet" media="only screen and (max-device-width: 480px)" href="style/iphone.css"/>
+
+    <script src="js/vendor/jquery-1.7.min.js"></script>
+    <script src="js/vendor/zepto.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var pages = ['page1', 'page2', 'page3'];
+            var currentPageIndex = 0;
+            $('#page1').show();
+
+            Zepto('#container').swipeRight(function () {
+                showPrevPage();
+            });
+
+            Zepto('#container').swipeLeft(function () {
+                showNextPage();
+
+            });
+
+            function showNextPage() {
+                if (currentPageIndex < pages.length - 1) {
+                    var currentPage = pages[currentPageIndex];
+                    $('#' + currentPage).hide();
+                    currentPageIndex += 1;
+                    var $page = $('#' + pages[currentPageIndex]);
+                    $page.css('marginLeft', '100%');
+                    $page.animate({ marginLeft:"0%"}, 500).show();
+                }
+            }
+
+
+            $('#clickme').click(function() {
+              $('#book').animate({
+                width: 'toggle',
+                height: 'toggle'
+              }, {
+                duration: 5000,
+                specialEasing: {
+                  width: 'linear',
+                  height: 'easeOutBounce'
+                },
+                complete: function() {
+                  $(this).after('<div>Animation complete.</div>');
+                }
+              });
+            });
+
+            function showPrevPage() {
+                if (currentPageIndex > 0) {
+                    var currentPage = pages[currentPageIndex];
+                    $('#' + currentPage).hide();
+                    currentPageIndex -= 1;
+                    var $page = $('#' + pages[currentPageIndex]);
+                    $page.css('marginRight', '100%');
+                    $page.animate({ marginRight:"0%"}, 500).show();
+                }
+            }
+
+        });
+
+
+    </script>
+
+    <style type="text/css">
+        .page {
+            display: none;
+
+            background-color: #e3e3e3;
+            height: 200px;
+
+        }
+
+        #container {
+            height: 200px;
+        }
+
+        .current {
+            -webkit-transform: translate(3em, 0);
+
+        }
+    </style>
+</head>
+<body>
+
+<div id="container">
+    <div id="page1" class="page">
+        <div>Page1</div>
+        <div class="pageContent">
+            <form>
+                <span><input type="text" id="firstName" value="<%= firstName %>"></span>
+                <span><input type="text" id="lastName" value="<%= lastName %>"></span>
+                <span><input type="text" id="middleName" value="<%= middleName %>"></span>
+                <span><input type="text" id="email" value="<%= email %>"></span>
+            </form>
+        </div>
+    </div>
+    <div id="page2" class="page">
+        <div>Page2</div>
+        <div class="pageContent">
+            <form>
+                <span><input type="text" id="firstName" value="<%= firstName %>"></span>
+                <span><input type="text" id="lastName" value="<%= lastName %>"></span>
+                <span><input type="text" id="middleName" value="<%= middleName %>"></span>
+                <div><input type="text" id="email" value="<%= email %>"></div>
+                <div><input type="text" id="email" value="<%= email %>"></div>
+                <div><input type="text" id="email" value="<%= email %>"></div>
+                <div><input type="text" id="email" value="<%= email %>"></div>
+                <div><input type="text" id="email" value="<%= email %>"></div>
+            </form>
+        </div>
+    </div>
+    <div id="page3" class="page">page3</div>
+</div>
+
+<div id="nav">
+    <input type="button" value="Next" id="next"/>
+</div>
+
+</body>
+</html>

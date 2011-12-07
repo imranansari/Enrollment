@@ -1,0 +1,187 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8">
+
+    <title>Enrollment Form</title>
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+
+    <!--<link type="text/css" rel="stylesheet" media="only screen and (max-device-width: 480px)" href="style/iphone.css"/>-->
+
+    <link rel="stylesheet" href="style/bootstrap.min.css">
+
+    <script src="js/vendor/jquery-1.7.min.js"></script>
+    <script src="js/vendor/zepto.min.js"></script>
+    <script src="js/vendor/underscore.js"></script>
+    <script src="js/vendor/backbone.js"></script>
+    <script src="js/enrollment_binding.js?1"></script>
+    <script src="js/vendor/backbone.modelbinding.js"></script>
+
+    <script type="text/template" id="participant-info-template">
+        <span><%= firstName %></span>
+        <span><%= lastName %></span>
+    </script>
+
+    <script type="text/template" id="add-beneficiary-template">
+        <form id="add-form">
+            <div class="pageContent">
+                <div class="span13">
+                    <!--                <div>
+                        <span style="float: right;">
+                        <button type="submit" class="btn primary large">Add</button>
+                        </span>
+                    </div>-->
+                    <div class="well" style="padding: 14px 19px;">
+                        <h2>Add/Update Primary Beneficiaries</h2>
+                    </div>
+                    <form action="">
+                        <fieldset>
+
+                            <div class="clearfix">
+
+                                <label for="firstName">First Name</label>
+
+                                <div class="input">
+                                    <input class="xlarge" id="firstName" name="firstName" size="30" type="text"/>
+                                </div>
+
+                            </div>
+                            <div class="clearfix">
+                                <label for="middleName">Middle Name</label>
+
+                                <div class="input">
+                                    <input class="xlarge" id="middleName" name="xlInput3" size="30" type="text"/>
+                                </div>
+                            </div>
+                            <div class="clearfix">
+                                <label>SSN</label>
+
+                                <div class="input">
+                                    <div class="inline-inputs">
+                                        <input class="span1" type="number" value=""/>
+                                        <input class="span1" type="number" value=""/>
+                                        <input class="span1" type="number" value=""/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- /clearfix -->
+                            <div class="clearfix">
+                                <label for="gender">Gender</label>
+
+                                <div class="input">
+                                    <select name="gender" id="gender">
+                                        <option>Male</option>
+                                        <option>Female</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="clearfix">
+                                <label for="relationship">Relationship</label>
+
+                                <div class="input">
+                                    <select name="relationship" id="relationship">
+                                        <option>Daughter</option>
+                                        <option>Son</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="clearfix">
+                                <label for="dob">Date of Birth</label>
+
+                                <div class="input">
+                                    <input id="dob" class="small" type="date" value=""/>
+                                </div>
+                            </div>
+
+                            <div class="clearfix">
+                                <label>Zip/Postal Code</label>
+
+                                <div class="input">
+                                    <div class="inline-inputs">
+                                        <input class="mini" type="text" value=""/>
+                                        <input class="mini" type="text" value=""/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="clearfix">
+                                <label for="city">City</label>
+
+                                <div class="input">
+                                    <select name="city" id="city">
+                                        <option>Greensboro</option>
+                                        <option>Durham</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="clearfix">
+                                <label for="state">State</label>
+
+                                <div class="input">
+                                    <select name="state" id="state">
+                                        <option>NC</option>
+                                        <option>NY</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="clearfix">
+                                <label for="country">Country</label>
+
+                                <div class="input">
+                                    <select name="country" id="country">
+                                        <option>USA</option>
+                                        <option>Canada</option>
+                                    </select>
+                                </div>
+                            </div>
+
+
+                            <div class="clearfix">
+                                <label for="mailingAddress">Mailing Address</label>
+
+                                <div class="input">
+                                    <input class="span6" id="mailingAddress" name="mailingAddress" type="text"/>
+                                    <span><button type="submit" class="btn small">Add Row</button></span>
+                                </div>
+
+                            </div>
+
+
+                            <div class="clearfix">
+                                <label for="percentage">Percentage</label>
+
+                                <div class="input">
+                                    <input class="span1" id="percentage" name="percentage" type="text"/>
+                                </div>
+                            </div>
+
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="well" style="padding: 14px 150px;">
+
+                    <button type="submit" class="btn large success">OK</button>
+                    &nbsp;
+                    <button type="reset" class="btn danger large">Cancel</button>
+                </div>
+            </div>
+        </form>
+    </script>
+
+
+</head>
+
+<body>
+<div id="container">
+    <div id="editform"></div>
+    <div id="viewform"></div>
+</div>
+
+</body>
+</html>
