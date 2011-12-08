@@ -96,24 +96,32 @@ $(document).ready(function () {
     $("#beneficiary-update-container").append(beneficiaryUpdateView.render().el);
 
 
-
     var contributionUpdateView = new ContributionUpdateView({model:newContribution});
-    //$("#contribution-container").append(contributionUpdateView.render().el);
+    $("#contribution-container").append(contributionUpdateView.render().el);
 
     $("#showJson").click(function () {
         console.log(JSON.stringify(newContribution));
     });
 
+    $("#saveBeneficiary").live('click', function () {
+        var myData1 = JSON.stringify(newBeneficiary);
+    });
+
+
     $("#addBeneficiary").click(function () {
         //alert('a');
         $('#modal-from-dom').modal({
-          keyboard: true,
-          backdrop: false
+            keyboard:true,
+            backdrop:false
 
         });
         $('#modal-from-dom').modal('show');
     });
 
+
+    var container = document.getElementById('pages-container');
+
+    var swipe = new SwipePaginate(container);
 
     /*    var enrollmentEditView = new EnrollmentEditView({model:newEnrollment});
      $("#editform").append(enrollmentEditView.render().el);*/
